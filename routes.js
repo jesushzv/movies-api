@@ -13,7 +13,9 @@ router.post('/', async (req,res)=>{
         name: req.body.name,
         release_year: req.body.release_year,
         genre: req.body.genre,
-        picture: req.body.picture
+        picture: req.body.picture,
+        likes: req.body.likes,
+        description: req.body.description
 
     });
 
@@ -27,7 +29,9 @@ router.put('/', async (req,res)=>{
         name: req.body.name,
         release_year: req.body.release_year,
         genre: req.body.genre,
-        picture: req.body.picture
+        picture: req.body.picture,
+        likes: req.body.likes,
+        description: req.body.description
     },
     {
         where: {

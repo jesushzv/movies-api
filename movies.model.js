@@ -13,6 +13,12 @@ const movie = db.define("movie", {
   picture: {
     type: db.Sequelize.STRING(1234),
   },
+  likes : {
+    type: db.Sequelize.INTEGER,
+  },
+  description: {
+    type: db.Sequelize.STRING,
+  }
 },{
   timestamps: false
 });

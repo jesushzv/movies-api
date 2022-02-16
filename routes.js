@@ -89,5 +89,26 @@ router.get('/genre/:genre', async (req,res)=>{
     res.send(movie);
 } )
 
+// Update likes
+router.put('/likes/:id', async (req,res)=>{
+    const movie = await Movie.findByPk(req.params.id);
+    if(!movie){
+        res.status(404).send("Movie not found");
+    }
+    else{
+        Movie.update({
+            likes: req.body.likes
+        },
+        {
+            where: {
+                id: req.params.id
+            },
+            returning: true,
+            plain: true
+        }).then(function(result) {
+            res.send(result[1].dataValues);
+        })
+    }
+} )
 
 module.exports = router;
